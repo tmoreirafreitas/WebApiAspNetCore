@@ -9,7 +9,7 @@ namespace SGE.Domain.Entities
         public int IdAluno { get; set; }
         public string Matricula { get; set; }
         public string Nome { get; set; }
-        public Contato MyProperty { get; set; }
+        public Contato Contato { get; set; }
         public Endereco Endereco { get; set; }
         public Turma Turma { get; set; }
         public Escola Escola { get; set; }
