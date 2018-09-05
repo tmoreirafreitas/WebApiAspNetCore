@@ -1,0 +1,9 @@
+C:\Projetos\dotnet\SGE\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.deps.json
+C:\Projetos\dotnet\SGE\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.dll
+C:\Projetos\dotnet\SGE\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.pdb
+C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.csprojResolveAssemblyReference.cache
+C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.csproj.CoreCompileInputs.cache
+C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfoInputs.cache
+C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfo.cs
+C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.dll
+C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.pdb
