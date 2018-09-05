@@ -1,0 +1,20 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SGE.Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace SGE.Infra.Data.Mappings
+{
+    public class TrabalhaMap : IEntityTypeConfiguration<Trabalha>
+    {
+        public void Configure(EntityTypeBuilder<Trabalha> builder)
+        {
+            builder.HasKey(t => new { t.IdEscola, t.IdProfessor });
+            builder.Property(t=>t.Adimissao).HasDefaultValueSql("getdate()");
+            builder.HasOne(t => t.Escola).WithMany(e => e.ListaDeTrabalhos).HasForeignKey(te => te.IdEscola);
+            builder.HasOne(t => t.Professor).WithMany(e => e.ListaDeTrabalho).HasForeignKey(te => te.IdProfessor);
+        }
+    }
+}

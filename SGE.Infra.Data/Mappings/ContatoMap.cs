@@ -13,7 +13,8 @@ namespace SGE.Infra.Data.Mappings
         {
             builder.HasKey(c => c.IdContato);
             builder.Property(c => c.Telefone).HasColumnType("varchar(14)").HasMaxLength(14).IsRequired();
-            builder.Property(c => c.Email).HasColumnType("varchar(100)").HasMaxLength(100).IsRequired();            
+            builder.Property(c => c.Email).HasColumnType("varchar(100)").HasMaxLength(100).IsRequired();
+            builder.HasOne(c => c.Pessoa).WithOne(p => p.Contato);
         }
     }
 }

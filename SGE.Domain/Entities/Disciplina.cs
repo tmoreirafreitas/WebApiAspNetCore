@@ -11,13 +11,13 @@ namespace SGE.Domain.Entities
         public int CargaHoraria { get; set; }
         public string Nome { get; set; }
         public string Codigo { get; set; }
-        public virtual IEnumerable<Professor> ListaDeProfessores { get; set; }
-        public virtual IEnumerable<Turma> ListaDeTurmas { get; set; }
+        public IEnumerable<ProfessorDisciplina> ListaDeProfessores { get; set; }
+        public IEnumerable<TurmaDisciplina> ListaDeTurmas { get; set; }
 
         public Disciplina()
         {
-            ListaDeProfessores = new List<Professor>();
-            ListaDeTurmas = new List<Turma>();
+            ListaDeProfessores = new List<ProfessorDisciplina>();
+            ListaDeTurmas = new List<TurmaDisciplina>();
         }
     }
 }

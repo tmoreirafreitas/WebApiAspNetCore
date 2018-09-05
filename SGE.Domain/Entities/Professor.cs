@@ -7,18 +7,18 @@ namespace SGE.Domain.Entities
     public class Professor
     {
         public int IdProfessor { get; set; }
+        public int IdContato { get; set; }
         public string Matricula { get; set; }
         public string Cpf { get; set; }
-        public string Nome { get; set; }
-        public Contato Contato { get; set; }
-        public DateTime? Adimissao { get; set; }
-        public virtual IEnumerable<Escola> ListaDeEscolas { get; set; }
-        public IEnumerable<Disciplina> ListaDeDisciplinas { get; set; }
+        public string Nome { get; set; }        
+        public IEnumerable<Trabalha> ListaDeTrabalho { get; set; }
+        public IEnumerable<ProfessorDisciplina> ListaDeDisciplinas { get; set; }
+        public virtual Contato Contato { get; set; }
 
         public Professor()
         {
-            ListaDeEscolas = new List<Escola>();
-            ListaDeDisciplinas = new List<Disciplina>();
+            ListaDeTrabalho = new List<Trabalha>();
+            ListaDeDisciplinas = new List<ProfessorDisciplina>();
         }
     }
 }

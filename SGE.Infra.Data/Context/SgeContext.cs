@@ -14,13 +14,14 @@ namespace SGE.Infra.Data.Context
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Escola> Escolas { get; set; }
         public DbSet<Professor> Professores { get; set; }
-        public DbSet<Turma> Turmas { get; set; }
+        public DbSet<Pessoa> Turmas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ContatoMap());
             modelBuilder.ApplyConfiguration(new EnderecoMap());
             modelBuilder.ApplyConfiguration(new AlunoMap());
+            modelBuilder.ApplyConfiguration(new TurmaEscolaMap());
             base.OnModelCreating(modelBuilder);
         }
 
