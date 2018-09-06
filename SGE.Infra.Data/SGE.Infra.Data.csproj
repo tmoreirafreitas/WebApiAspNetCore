@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Context\" />
     <Folder Include="EntityConfig\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
