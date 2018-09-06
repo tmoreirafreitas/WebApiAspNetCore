@@ -14,13 +14,24 @@ namespace SGE.Infra.Data.Context
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Escola> Escolas { get; set; }
         public DbSet<Professor> Professores { get; set; }
-        public DbSet<Pessoa> Turmas { get; set; }
+        public DbSet<ProfessorDisciplina> ProfessorDisciplinas { get; set; }
+        public DbSet<Trabalha> Trabalhas { get; set; }
+        public DbSet<Turma> Turmas { get; set; }
+        public DbSet<TurmaDisciplina> TurmaDisciplinas { get; set; }
+        public DbSet<TurmaEscola> EscolaTurmas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ContatoMap());
-            modelBuilder.ApplyConfiguration(new EnderecoMap());
             modelBuilder.ApplyConfiguration(new AlunoMap());
+            modelBuilder.ApplyConfiguration(new ContatoMap());
+            modelBuilder.ApplyConfiguration(new DisciplinaMap());
+            modelBuilder.ApplyConfiguration(new EnderecoMap());
+            modelBuilder.ApplyConfiguration(new EscolaMap());
+            modelBuilder.ApplyConfiguration(new ProfessorMap());
+            modelBuilder.ApplyConfiguration(new ProfessorDisciplinaMap());
+            modelBuilder.ApplyConfiguration(new TrabalhaMap());
+            modelBuilder.ApplyConfiguration(new TurmaMap());
+            modelBuilder.ApplyConfiguration(new TurmaDisciplinaMap());
             modelBuilder.ApplyConfiguration(new TurmaEscolaMap());
             base.OnModelCreating(modelBuilder);
         }
