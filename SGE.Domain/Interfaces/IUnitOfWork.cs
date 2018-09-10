@@ -6,8 +6,7 @@ namespace SGE.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IAlunoRepository AlunoRepository { get; }
-        IContatoRepository ContatoRepository { get; }
+        IAlunoRepository AlunoRepository { get; }        
         IEnderecoRepository EnderecoRepository { get; }
         IEscolaRepository EscolaRepository { get; }
         IProfessorDisciplinaRepository ProfessorDisciplinaRepository { get; }

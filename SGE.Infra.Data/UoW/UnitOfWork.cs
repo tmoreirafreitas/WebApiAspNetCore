@@ -10,8 +10,7 @@ namespace SGE.Infra.Data.UoW
     public class UnitOfWork : IUnitOfWork
     {
         private readonly SgeContext _context;
-        private readonly IAlunoRepository _alunoRepository;
-        private readonly IContatoRepository _contatoRepository;
+        private readonly IAlunoRepository _alunoRepository;        
         private readonly IEnderecoRepository _enderecoRepository;
         private readonly IEscolaRepository _escolaRepository;
         private readonly IProfessorDisciplinaRepository _professorDisciplinaRepository;
@@ -28,8 +27,6 @@ namespace SGE.Infra.Data.UoW
         }
 
         public IAlunoRepository AlunoRepository => _alunoRepository ?? new AlunoRepository(_context);
-
-        public IContatoRepository ContatoRepository => _contatoRepository ?? new ContatoRepository(_context);
 
         public IEnderecoRepository EnderecoRepository => _enderecoRepository ?? new EnderecoRepository(_context);
 

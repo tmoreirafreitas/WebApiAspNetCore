@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Context\" />
+    <Folder Include="Context\" />    
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +20,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SGE.Domain\SGE.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="*appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

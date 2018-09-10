@@ -13,6 +13,8 @@ namespace SGE.Domain.Entities
         public string Cidade { get; set; }
         public string Bairro { get; set; }
         public int? Numero { get; set; }
-        public char[] UF { get; set; }
+        public string UF { get; set; }
+        public IEnumerable<Aluno> ListaDeAlunos { get; set; }
+        public IEnumerable<Escola> ListaDeEscolas { get; set; }
     }
 }

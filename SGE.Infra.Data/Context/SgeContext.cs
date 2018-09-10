@@ -9,7 +9,6 @@ namespace SGE.Infra.Data.Context
     public class SgeContext : DbContext
     {
         public DbSet<Aluno> Alunos { get; set; }
-        public DbSet<Contato> Contatos { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Escola> Escolas { get; set; }
@@ -20,10 +19,18 @@ namespace SGE.Infra.Data.Context
         public DbSet<TurmaDisciplina> TurmaDisciplinas { get; set; }
         public DbSet<TurmaEscola> EscolaTurmas { get; set; }
 
+        public SgeContext()
+        {
+
+        }
+        public SgeContext(DbContextOptions<SgeContext> options) : base(options)
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AlunoMap());
-            modelBuilder.ApplyConfiguration(new ContatoMap());
+            modelBuilder.ApplyConfiguration(new AlunoMap());            
             modelBuilder.ApplyConfiguration(new DisciplinaMap());
             modelBuilder.ApplyConfiguration(new EnderecoMap());
             modelBuilder.ApplyConfiguration(new EscolaMap());
@@ -37,7 +44,7 @@ namespace SGE.Infra.Data.Context
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {            
+        {
             // get the configuration from the app settings
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())

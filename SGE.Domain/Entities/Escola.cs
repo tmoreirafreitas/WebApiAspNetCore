@@ -10,8 +10,8 @@ namespace SGE.Domain.Entities
         public int IdEscola { get; set; }
         public string Nome { get; set; }
         public string Cnpj { get; set; }
-        public int IdContato { get; set; }
-        public virtual Contato Contato { get; set; }
+        public string Telefone { get; set; }
+        public string Email { get; set; }
         public Endereco Endereco { get; set; }
         public IEnumerable<Trabalha> ListaDeTrabalhos { get; set; }
         public IEnumerable<Aluno> ListaDeAlunos { get; set; }

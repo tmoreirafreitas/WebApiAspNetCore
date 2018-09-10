@@ -9,7 +9,16 @@ E:\repos\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.
 E:\repos\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.csproj.CopyComplete
 E:\repos\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.runtimeconfig.json
 E:\repos\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.runtimeconfig.dev.json
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.deps.json
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.runtimeconfig.json
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.runtimeconfig.dev.json
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.dll
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Infra.Data.pdb
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Domain.dll
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\bin\Debug\netcoreapp2.0\SGE.Domain.pdb
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.csprojResolveAssemblyReference.cache
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.csproj.CoreCompileInputs.cache
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.AssemblyInfoInputs.cache
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.AssemblyInfo.cs
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.dll
+C:\Projetos\dotnet\WebApiAspNetCore\SGE.Infra.Data\obj\Debug\netcoreapp2.0\SGE.Infra.Data.pdb
