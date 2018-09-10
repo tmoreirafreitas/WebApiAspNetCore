@@ -7,14 +7,6 @@ C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInf
 C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfo.cs
 C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.dll
 C:\Projetos\dotnet\SGE\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.pdb
-E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.deps.json
-E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.dll
-E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.pdb
-E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.csproj.CoreCompileInputs.cache
-E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfoInputs.cache
-E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfo.cs
-E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.dll
-E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.pdb
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.deps.json
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.dll
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.pdb
@@ -24,3 +16,11 @@ C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domai
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfo.cs
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.dll
 C:\Projetos\dotnet\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.pdb
+E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.csproj.CoreCompileInputs.cache
+E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfoInputs.cache
+E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.AssemblyInfo.cs
+E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.dll
+E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.deps.json
+E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.dll
+E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.pdb
+E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.pdb

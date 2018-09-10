@@ -11,9 +11,9 @@ namespace SGE.Infra.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly SgeContext Db;
+        protected readonly DbContext Db;
         protected readonly DbSet<TEntity> DbSet;
-        public Repository(SgeContext context)
+        public Repository(DbContext context)
         {
             Db = context;
             DbSet = Db.Set<TEntity>();

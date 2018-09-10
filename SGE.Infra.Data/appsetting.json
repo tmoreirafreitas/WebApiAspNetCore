@@ -1,7 +1,8 @@
 {
   "ConnectionStrings": {
     //"DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=Sge;Trusted_Connection=True;MultipleActiveResultSets=true"
-    "DefaultConnection": "Data Source=SPDEV\\SHAREPOINT;Initial Catalog=Sge;Integrated Security=True"
+    //"DefaultConnection": "Data Source=SPDEV\\SHAREPOINT;Initial Catalog=Sge;Integrated Security=True"
+    "DefaultConnection": "Data Source=RJO-BCC-C2A-I21\\SHAREPOINT;Initial Catalog=Sge;Integrated Security=True"
   },
   "Logging": {
     "IncludeScopes": false,

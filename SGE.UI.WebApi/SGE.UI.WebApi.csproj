@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SGE.Domain\SGE.Domain.csproj" />
-    <ProjectReference Include="..\SGE.Infra.Data\SGE.Infra.Data.csproj" />
+    <ProjectReference Include="..\Sge.Infra.CrossCutting.IoC\Sge.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Sge.Service\Sge.Service.csproj" />
   </ItemGroup>
 
 </Project>
