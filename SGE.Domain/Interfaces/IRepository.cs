@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SGE.Domain.Interfaces
 {
     public interface IRepository<TEntity> where TEntity : class
     {
         void Add(TEntity obj);
-        TEntity GetById(int id);
+        Task<TEntity> GetById(int id);
         IQueryable<TEntity> GetAll();
         IEnumerable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> predicate);
         void Update(TEntity obj);

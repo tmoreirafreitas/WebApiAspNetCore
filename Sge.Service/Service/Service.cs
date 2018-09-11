@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Sge.Service.Service
 {
@@ -24,12 +25,12 @@ namespace Sge.Service.Service
             _repository.Delete(id);
         }
 
-        public TEntity Get(int id)
+        public async Task<TEntity> Get(int id)
         {
             if (id == 0)
                 throw new ArgumentException("O id não pode ser zero.");
 
-            return _repository.GetById(id);
+            return await _repository.GetById(id);
         }
 
         public IEnumerable<TEntity> Get()

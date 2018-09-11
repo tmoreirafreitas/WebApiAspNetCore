@@ -24,3 +24,4 @@ E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.deps.jso
 E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.dll
 E:\repos\WebApiAspNetCore\SGE.Domain\bin\Debug\netcoreapp2.0\SGE.Domain.pdb
 E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.pdb
+E:\repos\WebApiAspNetCore\SGE.Domain\obj\Debug\netcoreapp2.0\SGE.Domain.csprojAssemblyReference.cache

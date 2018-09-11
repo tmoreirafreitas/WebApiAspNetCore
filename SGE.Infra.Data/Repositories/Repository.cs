@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SGE.Domain.Interfaces;
 using SGE.Infra.Data.Context;
@@ -33,9 +34,9 @@ namespace SGE.Infra.Data.Repositories
             return DbSet;
         }
 
-        public TEntity GetById(int id)
+        public async Task<TEntity> GetById(int id)
         {
-            return DbSet.Find(id);
+            return await DbSet.FindAsync(id);
         }
 
         public IEnumerable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> predicate)
@@ -45,7 +46,7 @@ namespace SGE.Infra.Data.Repositories
 
         public void Update(TEntity obj)
         {
-            DbSet.Update(obj);
+            DbSet.Update(obj).State = EntityState.Modified;           
         }
 
         #region IDisposable Support

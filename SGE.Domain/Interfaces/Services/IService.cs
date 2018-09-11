@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SGE.Domain.Interfaces.Services
 {
@@ -15,7 +16,7 @@ namespace SGE.Domain.Interfaces.Services
 
         void Delete(int id);
 
-        TEntity Get(int id);
+        Task<TEntity> Get(int id);
 
         IEnumerable<TEntity> Get();
     }
