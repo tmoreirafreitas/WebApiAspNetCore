@@ -7,6 +7,5 @@ namespace SGE.Domain.Interfaces
 {
     public interface ITurmaRepository : IRepository<Turma>
     {
-        Turma GetByCodigo(string codigo);
     }
 }

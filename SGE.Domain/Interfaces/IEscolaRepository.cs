@@ -7,6 +7,5 @@ namespace SGE.Domain.Interfaces
 {
     public interface IEscolaRepository : IRepository<Escola>
     {
-        Escola GetByCnpj(string cnpj);
     }
 }

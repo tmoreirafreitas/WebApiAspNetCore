@@ -18,7 +18,7 @@ namespace Sge.Service.Service
         public IEnumerable<ProfessorDisciplina> GetByIdDisciplina(int idDisciplina)
         {
             if (idDisciplina == 0)
-                throw new ArgumentException("The idDisciplina can't be zero.");
+                throw new ArgumentException("O idDisciplina não pode ser zero.");
 
             return _repository.GetByExpression(pd => pd.IdDisciplina.Equals(idDisciplina));
         }
@@ -26,7 +26,7 @@ namespace Sge.Service.Service
         public IEnumerable<ProfessorDisciplina> GetByIdProfessor(int idProfessor)
         {
             if (idProfessor == 0)
-                throw new ArgumentException("The idProfessor can't be zero.");
+                throw new ArgumentException("O idProfessor não pode ser zero.");
 
             return _repository.GetByExpression(pd => pd.IdProfessor.Equals(idProfessor));
         }

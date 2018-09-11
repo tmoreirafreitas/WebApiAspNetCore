@@ -12,10 +12,5 @@ namespace SGE.Infra.Data.Repositories
         public TurmaEscolaRepository(SgeContext context) : base(context)
         {
         }
-
-        public IEnumerable<TurmaEscola> GetByEscola(int idEscola)
-        {
-            return GetByExpression(te => te.IdEscola.Equals(idEscola));
-        }
     }
 }

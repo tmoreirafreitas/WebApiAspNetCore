@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
 using SGE.Domain.Interfaces;
 using SGE.Infra.Data.Context;
@@ -11,9 +10,9 @@ namespace SGE.Infra.Data.Repositories
 {
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext Db;
+        protected readonly SgeContext Db;
         protected readonly DbSet<TEntity> DbSet;
-        public Repository(DbContext context)
+        public Repository(SgeContext context)
         {
             Db = context;
             DbSet = Db.Set<TEntity>();

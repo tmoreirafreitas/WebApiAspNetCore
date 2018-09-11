@@ -12,15 +12,5 @@ namespace SGE.Infra.Data.Repositories
         public ProfessorDisciplinaRepository(SgeContext context) : base(context)
         {
         }
-
-        public IEnumerable<ProfessorDisciplina> GetByIdDisciplina(int idDisciplina)
-        {
-            return GetByExpression(pd => pd.IdDisciplina.Equals(idDisciplina));
-        }
-
-        public IEnumerable<ProfessorDisciplina> GetByIdProfessor(int idProfessor)
-        {
-            return GetByExpression(pd => pd.IdProfessor.Equals(idProfessor));
-        }
     }
 }

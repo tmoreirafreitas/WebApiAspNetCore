@@ -18,7 +18,7 @@ namespace Sge.Service.Service
         public Escola GetByCnpj(string cnpj)
         {
             if (string.IsNullOrEmpty(cnpj))
-                throw new ArgumentException("The cnpj can't be empty or null.");
+                throw new ArgumentException("O cnpj não pode ser vazio ou nulo.");
 
             return _repository.GetByExpression(e => e.Cnpj.Equals(cnpj)).FirstOrDefault();
         }

@@ -7,6 +7,5 @@ namespace SGE.Domain.Interfaces
 {
     public interface ITurmaEscolaRepository : IRepository<TurmaEscola>
     {
-        IEnumerable<TurmaEscola> GetByEscola(int idEscola);
     }
 }

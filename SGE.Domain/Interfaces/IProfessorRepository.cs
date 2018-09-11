@@ -7,7 +7,5 @@ namespace SGE.Domain.Interfaces
 {
     public interface IProfessorRepository : IRepository<Professor>
     {
-        Professor GetByCpf(string cpf);
-        Professor GetByMatricula(string matricula);
     }
 }

@@ -9,7 +9,6 @@ namespace SGE.Domain.Interfaces
 {
     public interface IAlunoRepository : IRepository<Aluno>
     {
-        Aluno GetByMatricula(string matricula);
-        IEnumerable<Aluno> GetByName(string nome);
+
     }
 }

@@ -18,7 +18,7 @@ namespace Sge.Service.Service
         public Disciplina GetByCodigo(string codigo)
         {
             if (string.IsNullOrEmpty(codigo))
-                throw new ArgumentException("The codigo can't be empty or null.");
+                throw new ArgumentException("O codigo não pode ser vazio ou nulo.");
 
             return _repository.GetByExpression(d => d.Codigo.Equals(codigo)).FirstOrDefault();
         }

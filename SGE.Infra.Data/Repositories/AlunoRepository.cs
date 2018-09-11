@@ -14,15 +14,5 @@ namespace SGE.Infra.Data.Repositories
         public AlunoRepository(SgeContext context) : base(context)
         {
         }
-
-        public Aluno GetByMatricula(string matricula)
-        {            
-            return GetByExpression(a => a.Matricula.Equals(matricula)).FirstOrDefault();
-        }
-
-        public IEnumerable<Aluno> GetByName(string nome)
-        {
-            return GetByExpression(a => a.Nome.Contains(nome));
-        }
     }
 }

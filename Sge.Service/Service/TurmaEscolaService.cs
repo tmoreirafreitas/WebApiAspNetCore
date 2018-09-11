@@ -19,7 +19,7 @@ namespace Sge.Service.Service
         public IEnumerable<TurmaEscola> GetByEscola(int idEscola)
         {
             if (idEscola == 0)
-                throw new ArgumentException("The idEscola can't be zero.");
+                throw new ArgumentException("O idEscola não pode ser zero.");
 
             return _repository.GetByExpression(te => te.IdEscola.Equals(idEscola));
         }

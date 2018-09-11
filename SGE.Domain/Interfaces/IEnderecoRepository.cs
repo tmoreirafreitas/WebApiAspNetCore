@@ -7,6 +7,6 @@ namespace SGE.Domain.Interfaces
 {
     public interface IEnderecoRepository : IRepository<Endereco>
     {
-        Endereco GetByCep(string cep);
+        
     }
 }

@@ -7,6 +7,5 @@ namespace SGE.Domain.Interfaces
 {
     public interface ITrabalhaRepository : IRepository<Trabalha>
     {
-        IEnumerable<Trabalha> GetByDate(DateTime date);
     }
 }

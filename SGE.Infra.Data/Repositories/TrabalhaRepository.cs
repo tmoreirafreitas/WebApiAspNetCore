@@ -12,12 +12,5 @@ namespace SGE.Infra.Data.Repositories
         public TrabalhaRepository(SgeContext context) : base(context)
         {
         }
-
-        public IEnumerable<Trabalha> GetByDate(DateTime date)
-        {
-            return GetByExpression(t => t.Adimissao.Value.Day.Equals(date.Day)
-            && t.Adimissao.Value.Month.Equals(date.Month)
-            && t.Adimissao.Value.Year.Equals(date.Year));
-        }
     }
 }

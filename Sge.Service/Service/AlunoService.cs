@@ -19,7 +19,7 @@ namespace Sge.Service.Service
         public Aluno Get(string matricula)
         {
             if (string.IsNullOrEmpty(matricula))
-                throw new ArgumentException("The matricula can't be empty or null.");
+                throw new ArgumentException("A matricula não pode ser vazia ou nula.");
 
             return _repository.GetByExpression(a => a.Matricula.Equals(matricula)).FirstOrDefault();
         }
@@ -27,7 +27,7 @@ namespace Sge.Service.Service
         public IEnumerable<Aluno> GetByName(string nome)
         {
             if (string.IsNullOrEmpty(nome))
-                throw new ArgumentException("The nome can't be empty or null.");
+                throw new ArgumentException("O nome não pode ser vazio ou nulo.");
 
             return _repository.GetByExpression(a => a.Nome.Contains(nome));
         }

@@ -7,6 +7,5 @@ namespace SGE.Domain.Interfaces
 {
     public interface IDisciplinaRepository : IRepository<Disciplina>
     {
-        Disciplina GetByCodigo(string codigo);
     }
 }

@@ -19,7 +19,7 @@ namespace Sge.Service.Service
         public IEnumerable<Trabalha> GetByDate(DateTime date)
         {
             if (date == null)
-                throw new ArgumentException("The date can't be null.");
+                throw new ArgumentException("A data não pode ser nula.");
 
             return _repository.GetByExpression(t => t.Adimissao.Value.Day.Equals(date.Day)
             && t.Adimissao.Value.Month.Equals(date.Month)

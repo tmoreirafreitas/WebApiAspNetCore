@@ -10,10 +10,5 @@ namespace SGE.Infra.Data.Repositories
         public EscolaRepository(SgeContext context) : base(context)
         {
         }
-
-        public Escola GetByCnpj(string cnpj)
-        {
-            return GetByExpression(e => e.Cnpj.Equals(cnpj)).FirstOrDefault();
-        }
     }
 }

@@ -19,10 +19,10 @@ namespace Sge.Service.Service
         public IEnumerable<TurmaDisciplina> GetBetweenDates(DateTime dateStart, DateTime dateEnd)
         {
             if (dateStart == null)
-                throw new ArgumentException("The dateStart can't be null.");
+                throw new ArgumentException("A dateStart não pode ser nula.");
 
             if (dateEnd == null)
-                throw new ArgumentException("The dateEnd can't be null.");
+                throw new ArgumentException("A dateEnd não pode ser nula.");
 
             return _repository.GetByExpression(td => (td.DataInicio.Year >= (dateStart.Year)
             && td.DataInicio.Month >= (dateStart.Month)
@@ -35,7 +35,7 @@ namespace Sge.Service.Service
         public IEnumerable<TurmaDisciplina> GetByDateEnd(DateTime dateEnd)
         {
             if (dateEnd == null)
-                throw new ArgumentException("The dateEnd can't be null.");
+                throw new ArgumentException("A dateEnd não pode ser nula.");
 
             return _repository.GetByExpression(td => td.DataTermino.Year.Equals(dateEnd.Year)
             && td.DataTermino.Month.Equals(dateEnd.Month)
@@ -45,7 +45,7 @@ namespace Sge.Service.Service
         public IEnumerable<TurmaDisciplina> GetByDateStart(DateTime dateStart)
         {
             if (dateStart == null)
-                throw new ArgumentException("The dateStart can't be null.");
+                throw new ArgumentException("A dateStart não pode ser nula.");
 
             return _repository.GetByExpression(td => td.DataInicio.Year.Equals(dateStart.Year)
             && td.DataInicio.Month.Equals(dateStart.Month)

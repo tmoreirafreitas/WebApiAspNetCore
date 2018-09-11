@@ -10,10 +10,5 @@ namespace SGE.Infra.Data.Repositories
         public EnderecoRepository(SgeContext context) : base(context)
         {
         }
-
-        public Endereco GetByCep(string cep)
-        {
-            return GetByExpression(e => e.Cep.Equals(cep)).FirstOrDefault();
-        }
     }
 }

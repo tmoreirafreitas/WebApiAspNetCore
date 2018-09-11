@@ -10,15 +10,5 @@ namespace SGE.Infra.Data.Repositories
         public ProfessorRepository(SgeContext context) : base(context)
         {
         }
-
-        public Professor GetByCpf(string cpf)
-        {
-            return GetByExpression(p => p.Cpf.Equals(cpf)).FirstOrDefault();
-        }
-
-        public Professor GetByMatricula(string matricula)
-        {
-            return GetByExpression(p => p.Matricula.Equals(matricula)).FirstOrDefault();
-        }
     }
 }

@@ -18,7 +18,7 @@ namespace Sge.Service.Service
         public Endereco GetByCep(string cep)
         {
             if (string.IsNullOrEmpty(cep))
-                throw new ArgumentException("The cep can't be empty or null.");
+                throw new ArgumentException("O cep não pode ser vazio ou nulo.");
 
             return _repository.GetByExpression(e => e.Cep.Equals(cep)).FirstOrDefault();
         }

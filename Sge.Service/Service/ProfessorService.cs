@@ -18,7 +18,7 @@ namespace Sge.Service.Service
         public Professor GetByCpf(string cpf)
         {
             if (string.IsNullOrEmpty(cpf))
-                throw new ArgumentException("The cpf can't be empty or null.");
+                throw new ArgumentException("o cpf não pode ser vazio ou nulo.");
 
             return _repository.GetByExpression(p => p.Cpf.Equals(cpf)).FirstOrDefault();
         }
@@ -26,7 +26,7 @@ namespace Sge.Service.Service
         public Professor GetByMatricula(string matricula)
         {
             if (string.IsNullOrEmpty(matricula))
-                throw new ArgumentException("The matricula can't be empty or null.");
+                throw new ArgumentException("A matricula não pode ser vazia ou nula.");
 
             return _repository.GetByExpression(p => p.Matricula.Equals(matricula)).FirstOrDefault();
         }

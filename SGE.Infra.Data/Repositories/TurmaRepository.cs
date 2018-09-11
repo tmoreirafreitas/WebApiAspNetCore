@@ -10,10 +10,5 @@ namespace SGE.Infra.Data.Repositories
         public TurmaRepository(SgeContext context) : base(context)
         {
         }
-
-        public Turma GetByCodigo(string codigo)
-        {
-            return GetByExpression(t => t.Codigo.Equals(codigo)).FirstOrDefault();
-        }
     }
 }

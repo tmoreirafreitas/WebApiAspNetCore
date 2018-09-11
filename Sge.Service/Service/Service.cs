@@ -19,7 +19,7 @@ namespace Sge.Service.Service
         public void Delete(int id)
         {
             if (id == 0)
-                throw new ArgumentException("The id can't be zero.");
+                throw new ArgumentException("O id não pode ser zero.");
 
             _repository.Delete(id);
         }
@@ -27,7 +27,7 @@ namespace Sge.Service.Service
         public TEntity Get(int id)
         {
             if (id == 0)
-                throw new ArgumentException("The id can't be zero.");
+                throw new ArgumentException("O id não pode ser zero.");
 
             return _repository.GetById(id);
         }
@@ -36,21 +36,6 @@ namespace Sge.Service.Service
         {
             return _repository.GetAll();
         }
-
-        //public TEntity Post<V>(TEntity obj) where V : AbstractValidator<TEntity>
-        //{
-        //    Validate(obj, Activator.CreateInstance<V>());
-        //    _repository.Add(obj);
-        //    return obj;
-        //}
-
-        //public TEntity Put<V>(TEntity obj) where V : AbstractValidator<TEntity>
-        //{
-        //    Validate(obj, Activator.CreateInstance<V>());
-
-        //    _repository.Update(obj);
-        //    return obj;
-        //}
 
         public TEntity Post(TEntity obj)
         {
