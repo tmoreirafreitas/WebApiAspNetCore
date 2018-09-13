@@ -12,8 +12,9 @@ namespace SGE.Domain.Interfaces
         void Add(TEntity obj);
         Task<TEntity> GetById(int id);
         IQueryable<TEntity> GetAll();
-        IEnumerable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> predicate);
         void Update(TEntity obj);
         void Delete(int id);
+        void Delete(Expression<Func<TEntity, bool>> predicate);
     }
 }

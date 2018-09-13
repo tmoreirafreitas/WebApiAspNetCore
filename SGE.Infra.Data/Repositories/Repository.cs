@@ -39,14 +39,19 @@ namespace SGE.Infra.Data.Repositories
             return await DbSet.FindAsync(id);
         }
 
-        public IEnumerable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> GetByExpression(Expression<Func<TEntity, bool>> predicate)
         {
-            return DbSet.Where(predicate).ToList();
+            return DbSet.Where(predicate);
+        }
+
+        public void Delete(Expression<Func<TEntity, bool>> predicate)
+        {
+            DbSet.Where(predicate).ToList().ForEach(del => DbSet.Remove(del));
         }
 
         public void Update(TEntity obj)
         {
-            DbSet.Update(obj).State = EntityState.Modified;           
+            DbSet.Update(obj).State = EntityState.Modified;
         }
 
         #region IDisposable Support

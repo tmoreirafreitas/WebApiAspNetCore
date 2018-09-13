@@ -9,5 +9,7 @@ namespace Sge.Service.Interfaces
     public interface IProfessorEscolaService : IService<ProfessorEscola, ProfessorEscolaValidator>
     {
         IEnumerable<ProfessorEscola> GetByDate(DateTime date);
+        ProfessorEscola GetByIds(int IdProfessor, int IdEscola);
+        void Delete(int IdProfessor, int IdEscola);
     }
 }
