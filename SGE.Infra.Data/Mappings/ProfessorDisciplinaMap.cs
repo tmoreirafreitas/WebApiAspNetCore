@@ -9,8 +9,13 @@ namespace SGE.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<ProfessorDisciplina> builder)
         {
             builder.HasKey(pd => new { pd.IdDisciplina, pd.IdProfessor });
-            builder.HasOne(pd => pd.Disciplina).WithMany(d => d.ListaDeProfessores).HasForeignKey(pd => pd.IdDisciplina);
-            builder.HasOne(pd => pd.Professor).WithMany(d => d.ListaDeDisciplinas).HasForeignKey(pd => pd.IdProfessor);
+            builder.HasOne(pd => pd.Disciplina)
+                .WithMany(d => d.ListaDeProfessores)
+                .HasForeignKey(pd => pd.IdDisciplina);
+
+            builder.HasOne(pd => pd.Professor)
+                .WithMany(d => d.ListaDeDisciplinas)
+                .HasForeignKey(pd => pd.IdProfessor);
         }
     }
 }

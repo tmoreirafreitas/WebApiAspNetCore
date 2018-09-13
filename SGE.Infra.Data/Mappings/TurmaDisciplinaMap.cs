@@ -9,10 +9,21 @@ namespace SGE.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<TurmaDisciplina> builder)
         {
             builder.HasKey(td => new { td.IdTurma, td.IdDisciplina });
-            builder.HasOne(td => td.Turma).WithMany(t => t.ListaDeDisciplinas).HasForeignKey(td => td.IdTurma);
-            builder.HasOne(td => td.Disciplina).WithMany(t => t.ListaDeTurmas).HasForeignKey(td => td.IdDisciplina);
-            builder.Property(td => td.DataInicio).HasColumnType("datetime");
-            builder.Property(td => td.DataTermino).HasColumnType("datetime");
+            builder.HasOne(td => td.Turma)
+                .WithMany(t => t.ListaDeDisciplinas)
+                .HasForeignKey(td => td.IdTurma)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(td => td.Disciplina)
+                .WithMany(t => t.ListaDeTurmas)
+                .HasForeignKey(td => td.IdDisciplina)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Property(td => td.DataInicio)
+                .HasColumnType("datetime");
+
+            builder.Property(td => td.DataTermino)
+                .HasColumnType("datetime");
         }
     }
 }

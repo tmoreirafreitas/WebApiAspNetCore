@@ -11,9 +11,18 @@ namespace SGE.Infra.Data.Mappings
         {
             var converter = new EnumToStringConverter<Turno>();
             builder.HasKey(t => t.IdTurma);
-            builder.Property(t => t.Codigo).HasColumnType("varchar(7)").HasMaxLength(7).IsRequired();
-            builder.Property(t => t.Sala).HasColumnType("varchar(25)").HasMaxLength(25).IsRequired();
-            builder.Property(t => t.Turno).HasConversion(converter);
+            builder.Property(t => t.Codigo)
+                .HasColumnType("varchar(7)")
+                .HasMaxLength(7)
+                .IsRequired();
+
+            builder.Property(t => t.Sala)
+                .HasColumnType("varchar(25)")
+                .HasMaxLength(25)
+                .IsRequired();
+
+            builder.Property(t => t.Turno)
+                .HasConversion(converter);
         }
     }
 }

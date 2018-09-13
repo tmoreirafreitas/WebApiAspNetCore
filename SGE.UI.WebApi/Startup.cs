@@ -30,7 +30,10 @@ namespace SGE.UI.WebApi
             services.AddDbContext<SgeContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(
+            options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+        );
 
             // .NET Native DI Abstraction
             RegisterServices(services);
@@ -57,8 +60,6 @@ namespace SGE.UI.WebApi
 
             app.UseStaticFiles();
             app.UseAuthentication();
-            app.UseMvc();
-
             app.UseMvc();
         }
 

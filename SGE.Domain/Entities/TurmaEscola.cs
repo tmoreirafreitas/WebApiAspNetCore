@@ -6,10 +6,9 @@ namespace SGE.Domain.Entities
 {
     public class TurmaEscola
     {
-        public int IdTurma { get; set; }
-        public Turma Turma { get; set; }
-
+        public int IdTurma { get; set; }      
         public int IdEscola { get; set; }       
-        public Escola Escola { get; set; }
+        public virtual Escola Escola { get; set; }
+        public virtual Turma Turma { get; set; }
     }
 }

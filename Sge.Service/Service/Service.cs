@@ -25,7 +25,7 @@ namespace Sge.Service.Service
             _repository.Delete(id);
         }
 
-        public async Task<TEntity> Get(int id)
+        public virtual async Task<TEntity> Get(int id)
         {
             if (id == 0)
                 throw new ArgumentException("O id não pode ser zero.");

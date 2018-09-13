@@ -12,13 +12,40 @@ namespace SGE.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<Escola> builder)
         {
             builder.HasKey(e => e.IdEscola);
-            builder.Property(e => e.Cnpj).HasColumnType("varchar(19)").HasMaxLength(19).IsRequired();
-            builder.Property(e => e.Nome).HasColumnType("varchar(100)").HasMaxLength(100).IsRequired();
-            builder.Property(c => c.Telefone).HasColumnType("varchar(14)").HasMaxLength(14).IsRequired();
-            builder.Property(c => c.Email).HasColumnType("varchar(100)").HasMaxLength(100).IsRequired();
-            builder.Property(c => c.Telefone).HasColumnType("varchar(14)").HasMaxLength(14).IsRequired();
-            builder.Property(c => c.Email).HasColumnType("varchar(100)").HasMaxLength(100).IsRequired();
-            builder.HasOne(e => e.Endereco).WithMany(e => e.ListaDeEscolas);
+            builder.Property(e => e.Cnpj)
+                .HasColumnType("varchar(19)")
+                .HasMaxLength(19)
+                .IsRequired();
+
+            builder.Property(e => e.Nome)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.Property(c => c.Telefone)
+                .HasColumnType("varchar(14)")
+                .HasMaxLength(14)
+                .IsRequired();
+
+            builder.Property(c => c.Email)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.Property(c => c.Telefone)
+                .HasColumnType("varchar(14)")
+                .HasMaxLength(14)
+                .IsRequired();
+
+            builder.Property(c => c.Email)
+                .HasColumnType("varchar(100)")
+                .HasMaxLength(100)
+                .IsRequired();
+
+            builder.HasOne(e => e.Endereco)
+                .WithMany(e => e.ListaDeEscolas)
+                .HasForeignKey(e => e.IdEndereco)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

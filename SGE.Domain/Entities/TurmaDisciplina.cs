@@ -10,7 +10,7 @@ namespace SGE.Domain.Entities
         public DateTime DataTermino { get; set; }
         public int IdTurma { get; set; }
         public int IdDisciplina { get; set; }
-        public Turma Turma { get; set; }
-        public Disciplina Disciplina { get; set; }
+        public virtual Turma Turma { get; set; }
+        public virtual Disciplina Disciplina { get; set; }
     }
 }

@@ -14,7 +14,13 @@ namespace SGE.Domain.Entities
         public string Bairro { get; set; }
         public int? Numero { get; set; }
         public string UF { get; set; }
-        public IEnumerable<Aluno> ListaDeAlunos { get; set; }
-        public IEnumerable<Escola> ListaDeEscolas { get; set; }
+        public virtual IEnumerable<Aluno> ListaDeAlunos { get; set; }
+        public virtual IEnumerable<Escola> ListaDeEscolas { get; set; }
+
+        public Endereco()
+        {
+            ListaDeAlunos = new List<Aluno>();
+            ListaDeEscolas = new List<Escola>();
+        }
     }
 }

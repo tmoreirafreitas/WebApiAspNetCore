@@ -32,10 +32,10 @@ namespace SGE.Infra.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Cep = table.Column<string>(type: "varchar(8)", maxLength: 8, nullable: false),
                     Logradouro = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    Complemento = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
+                    Complemento = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true),
                     Cidade = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Bairro = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    Numero = table.Column<int>(type: "int", maxLength: 100, nullable: false),
+                    Numero = table.Column<int>(type: "int", maxLength: 100, nullable: true),
                     UF = table.Column<string>(type: "char(2)", maxLength: 2, nullable: false)
                 },
                 constraints: table =>
@@ -81,18 +81,18 @@ namespace SGE.Infra.Data.Migrations
                 {
                     IdEscola = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IdEndereco = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Cnpj = table.Column<string>(type: "varchar(19)", maxLength: 19, nullable: false),
                     Telefone = table.Column<string>(type: "varchar(14)", maxLength: 14, nullable: false),
-                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    EnderecoIdEndereco = table.Column<int>(nullable: true)
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Escolas", x => x.IdEscola);
                     table.ForeignKey(
-                        name: "FK_Escolas_Enderecos_EnderecoIdEndereco",
-                        column: x => x.EnderecoIdEndereco,
+                        name: "FK_Escolas_Enderecos_IdEndereco",
+                        column: x => x.IdEndereco,
                         principalTable: "Enderecos",
                         principalColumn: "IdEndereco",
                         onDelete: ReferentialAction.Restrict);
@@ -139,47 +139,50 @@ namespace SGE.Infra.Data.Migrations
                         column: x => x.IdDisciplina,
                         principalTable: "Disciplinas",
                         principalColumn: "IdDisciplina",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_TurmaDisciplinas_Turmas_IdTurma",
                         column: x => x.IdTurma,
                         principalTable: "Turmas",
                         principalColumn: "IdTurma",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Alunos",
                 columns: table => new
                 {
-                    IdAluno = table.Column<int>(nullable: false),
+                    IdAluno = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IdEndereco = table.Column<int>(nullable: false),
+                    IdTurma = table.Column<int>(nullable: false),
+                    IdEscola = table.Column<int>(nullable: false),
                     Matricula = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     Nome = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
                     Telefone = table.Column<string>(type: "varchar(14)", maxLength: 14, nullable: false),
-                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    EnderecoIdEndereco = table.Column<int>(nullable: true)
+                    Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Alunos", x => x.IdAluno);
                     table.ForeignKey(
-                        name: "FK_Alunos_Enderecos_EnderecoIdEndereco",
-                        column: x => x.EnderecoIdEndereco,
+                        name: "FK_Alunos_Enderecos_IdEndereco",
+                        column: x => x.IdEndereco,
                         principalTable: "Enderecos",
                         principalColumn: "IdEndereco",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Alunos_Escolas_IdAluno",
-                        column: x => x.IdAluno,
+                        name: "FK_Alunos_Escolas_IdEscola",
+                        column: x => x.IdEscola,
                         principalTable: "Escolas",
                         principalColumn: "IdEscola",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Alunos_Turmas_IdAluno",
-                        column: x => x.IdAluno,
+                        name: "FK_Alunos_Turmas_IdTurma",
+                        column: x => x.IdTurma,
                         principalTable: "Turmas",
                         principalColumn: "IdTurma",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -197,13 +200,13 @@ namespace SGE.Infra.Data.Migrations
                         column: x => x.IdEscola,
                         principalTable: "Escolas",
                         principalColumn: "IdEscola",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_EscolaTurmas_Turmas_IdTurma",
                         column: x => x.IdTurma,
                         principalTable: "Turmas",
                         principalColumn: "IdTurma",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -222,24 +225,34 @@ namespace SGE.Infra.Data.Migrations
                         column: x => x.IdEscola,
                         principalTable: "Escolas",
                         principalColumn: "IdEscola",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Trabalhas_Professores_IdProfessor",
                         column: x => x.IdProfessor,
                         principalTable: "Professores",
                         principalColumn: "IdProfessor",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Alunos_EnderecoIdEndereco",
+                name: "IX_Alunos_IdEndereco",
                 table: "Alunos",
-                column: "EnderecoIdEndereco");
+                column: "IdEndereco");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Escolas_EnderecoIdEndereco",
+                name: "IX_Alunos_IdEscola",
+                table: "Alunos",
+                column: "IdEscola");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Alunos_IdTurma",
+                table: "Alunos",
+                column: "IdTurma");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Escolas_IdEndereco",
                 table: "Escolas",
-                column: "EnderecoIdEndereco");
+                column: "IdEndereco");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EscolaTurmas_IdTurma",

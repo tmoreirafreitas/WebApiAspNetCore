@@ -16,12 +16,16 @@ namespace SGE.UI.WebApi.Controllers
     public class EscolasController : ControllerBase
     {        
         private readonly IEscolaService _escolaService;
+        private readonly IEnderecoService _enderecoService;
         private readonly IUnitOfWork _uow;
 
-        public EscolasController(IEscolaService escolaService, IUnitOfWork uow)
+        public EscolasController(IEscolaService escolaService, 
+            IEnderecoService enderecoService, 
+            IUnitOfWork uow)
         {
             _uow = uow;
             _escolaService = escolaService;
+            _enderecoService = enderecoService;
         }
 
         // GET: api/Escolas
@@ -46,7 +50,7 @@ namespace SGE.UI.WebApi.Controllers
             {
                 return NotFound();
             }
-
+            
             return Ok(escola);
         }
 
@@ -94,6 +98,8 @@ namespace SGE.UI.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            var endereco = _enderecoService.Post(escola.Endereco);            
+            escola.IdEndereco = endereco.IdEndereco;
             _escolaService.Post(escola);
             _uow.Commit();
 

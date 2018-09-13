@@ -10,9 +10,9 @@ namespace SGE.Domain.Entities
         public Turno Turno { get; set; }
         public string Sala { get; set; }
         public string Codigo { get; set; }
-        public IEnumerable<Aluno> ListaDeAlunos { get; set; }
-        public IEnumerable<TurmaDisciplina> ListaDeDisciplinas { get; set; }
-        public IEnumerable<TurmaEscola> ListaDeEscolas { get; set; }
+        public virtual IEnumerable<Aluno> ListaDeAlunos { get; set; }
+        public virtual IEnumerable<TurmaDisciplina> ListaDeDisciplinas { get; set; }
+        public virtual IEnumerable<TurmaEscola> ListaDeEscolas { get; set; }
 
         public Turma()
         {

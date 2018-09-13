@@ -10,7 +10,7 @@ using SGE.Infra.Data.Context;
 namespace SGE.Infra.Data.Migrations
 {
     [DbContext(typeof(SgeContext))]
-    [Migration("20180907201253_InitialCreate")]
+    [Migration("20180913131514_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,14 +23,20 @@ namespace SGE.Infra.Data.Migrations
 
             modelBuilder.Entity("SGE.Domain.Entities.Aluno", b =>
                 {
-                    b.Property<int>("IdAluno");
+                    b.Property<int>("IdAluno")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("EnderecoIdEndereco");
+                    b.Property<int>("IdEndereco");
+
+                    b.Property<int>("IdEscola");
+
+                    b.Property<int>("IdTurma");
 
                     b.Property<string>("Matricula")
                         .IsRequired()
@@ -49,7 +55,11 @@ namespace SGE.Infra.Data.Migrations
 
                     b.HasKey("IdAluno");
 
-                    b.HasIndex("EnderecoIdEndereco");
+                    b.HasIndex("IdEndereco");
+
+                    b.HasIndex("IdEscola");
+
+                    b.HasIndex("IdTurma");
 
                     b.ToTable("Alunos");
                 });
@@ -101,7 +111,6 @@ namespace SGE.Infra.Data.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("Complemento")
-                        .IsRequired()
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
@@ -111,7 +120,6 @@ namespace SGE.Infra.Data.Migrations
                         .HasMaxLength(100);
 
                     b.Property<int?>("Numero")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasMaxLength(100);
 
@@ -141,7 +149,7 @@ namespace SGE.Infra.Data.Migrations
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("EnderecoIdEndereco");
+                    b.Property<int>("IdEndereco");
 
                     b.Property<string>("Nome")
                         .IsRequired()
@@ -155,7 +163,7 @@ namespace SGE.Infra.Data.Migrations
 
                     b.HasKey("IdEscola");
 
-                    b.HasIndex("EnderecoIdEndereco");
+                    b.HasIndex("IdEndereco");
 
                     b.ToTable("Escolas");
                 });
@@ -286,24 +294,26 @@ namespace SGE.Infra.Data.Migrations
                 {
                     b.HasOne("SGE.Domain.Entities.Endereco", "Endereco")
                         .WithMany("ListaDeAlunos")
-                        .HasForeignKey("EnderecoIdEndereco");
+                        .HasForeignKey("IdEndereco")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SGE.Domain.Entities.Escola", "Escola")
                         .WithMany("ListaDeAlunos")
-                        .HasForeignKey("IdAluno")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("IdEscola")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SGE.Domain.Entities.Turma", "Turma")
                         .WithMany("ListaDeAlunos")
-                        .HasForeignKey("IdAluno")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("IdTurma")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("SGE.Domain.Entities.Escola", b =>
                 {
                     b.HasOne("SGE.Domain.Entities.Endereco", "Endereco")
                         .WithMany("ListaDeEscolas")
-                        .HasForeignKey("EnderecoIdEndereco");
+                        .HasForeignKey("IdEndereco")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("SGE.Domain.Entities.ProfessorDisciplina", b =>
@@ -324,12 +334,12 @@ namespace SGE.Infra.Data.Migrations
                     b.HasOne("SGE.Domain.Entities.Escola", "Escola")
                         .WithMany("ListaDeTrabalhos")
                         .HasForeignKey("IdEscola")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SGE.Domain.Entities.Professor", "Professor")
                         .WithMany("ListaDeTrabalho")
                         .HasForeignKey("IdProfessor")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("SGE.Domain.Entities.TurmaDisciplina", b =>
@@ -337,12 +347,12 @@ namespace SGE.Infra.Data.Migrations
                     b.HasOne("SGE.Domain.Entities.Disciplina", "Disciplina")
                         .WithMany("ListaDeTurmas")
                         .HasForeignKey("IdDisciplina")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SGE.Domain.Entities.Turma", "Turma")
                         .WithMany("ListaDeDisciplinas")
                         .HasForeignKey("IdTurma")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("SGE.Domain.Entities.TurmaEscola", b =>
@@ -350,12 +360,12 @@ namespace SGE.Infra.Data.Migrations
                     b.HasOne("SGE.Domain.Entities.Escola", "Escola")
                         .WithMany("ListaDeTurmas")
                         .HasForeignKey("IdEscola")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("SGE.Domain.Entities.Turma", "Turma")
                         .WithMany("ListaDeEscolas")
                         .HasForeignKey("IdTurma")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

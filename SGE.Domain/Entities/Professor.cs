@@ -12,8 +12,8 @@ namespace SGE.Domain.Entities
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public IEnumerable<Trabalha> ListaDeTrabalho { get; set; }
-        public IEnumerable<ProfessorDisciplina> ListaDeDisciplinas { get; set; }
+        public virtual IEnumerable<Trabalha> ListaDeTrabalho { get; set; }
+        public virtual IEnumerable<ProfessorDisciplina> ListaDeDisciplinas { get; set; }
         
         public Professor()
         {

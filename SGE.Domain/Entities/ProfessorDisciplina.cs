@@ -8,7 +8,7 @@ namespace SGE.Domain.Entities
     {
         public int IdProfessor { get; set; }
         public int IdDisciplina { get; set; }
-        public Professor Professor { get; set; }
-        public Disciplina Disciplina { get; set; }
+        public virtual Professor Professor { get; set; }
+        public virtual Disciplina Disciplina { get; set; }
     }
 }
