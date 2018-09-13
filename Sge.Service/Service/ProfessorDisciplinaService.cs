@@ -15,6 +15,17 @@ namespace Sge.Service.Service
             _repository = repository;
         }
 
+        public void Delete(int IdProfessor, int idDisciplina)
+        {
+            if (IdProfessor == 0)
+                throw new ArgumentException("O IdProfessor não pode ser zero.");
+
+            if (idDisciplina == 0)
+                throw new ArgumentException("O idDisciplina não pode ser zero.");
+
+            _repository.Delete(pd => pd.IdDisciplina.Equals(idDisciplina) && pd.IdProfessor.Equals(IdProfessor));
+        }
+
         public IEnumerable<ProfessorDisciplina> GetByIdDisciplina(int idDisciplina)
         {
             if (idDisciplina == 0)

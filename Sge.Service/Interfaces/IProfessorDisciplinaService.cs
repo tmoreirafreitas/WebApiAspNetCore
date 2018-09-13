@@ -9,5 +9,6 @@ namespace Sge.Service.Interfaces
     {
         IEnumerable<ProfessorDisciplina> GetByIdDisciplina(int idDisciplina);
         IEnumerable<ProfessorDisciplina> GetByIdProfessor(int idProfessor);
+        void Delete(int IdProfessor, int idDisciplina);
     }
 }
