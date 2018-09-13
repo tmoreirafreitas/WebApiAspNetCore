@@ -14,25 +14,25 @@ namespace SGE.UI.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProfessoresController : ControllerBase
+    public class TurmasController : ControllerBase
     {
-        private readonly IProfessorService _professorService;
+        private readonly ITurmaService _turmaService;
         private readonly IUnitOfWork _uow;
 
-        public ProfessoresController(IProfessorService professorService, IUnitOfWork unitOfWork)
+        public TurmasController(ITurmaService turmaService, IUnitOfWork unitOfWork)
         {
-            _professorService = professorService;
+            _turmaService = turmaService;
             _uow = unitOfWork;
         }
 
-        // GET: api/Professores
+        // GET: api/Turmas
         [HttpGet]
-        public IEnumerable<Professor> Get()
+        public IEnumerable<Turma> Get()
         {
-            return _professorService.Get();
+            return _turmaService.Get();
         }
 
-        // GET: api/Professores/5
+        // GET: api/Turmas/5
         [HttpGet("{id}")]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
@@ -41,31 +41,31 @@ namespace SGE.UI.WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            var professor = await _professorService.Get(id);
+            var turma = await _turmaService.Get(id);
 
-            if (professor == null)
+            if (turma == null)
             {
                 return NotFound();
             }
 
-            return Ok(professor);
+            return Ok(turma);
         }
 
-        // PUT: api/Professores/5
+        // PUT: api/Turmas/5
         [HttpPut("{id}")]
-        public IActionResult Put([FromRoute] int id, [FromBody] Professor professor)
+        public IActionResult Put([FromRoute] int id, [FromBody] Turma turma)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != professor.IdProfessor)
+            if (id != turma.IdTurma)
             {
                 return BadRequest();
             }
 
-            _professorService.Put(professor);
+            _turmaService.Put(turma);
 
             try
             {
@@ -73,7 +73,7 @@ namespace SGE.UI.WebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfessorExists(id))
+                if (!TurmaExists(id))
                 {
                     return NotFound();
                 }
@@ -86,44 +86,45 @@ namespace SGE.UI.WebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Professores
+        // POST: api/Turmas
         [HttpPost]
-        public IActionResult Post([FromBody] Professor professor)
+        public IActionResult Post([FromBody] Turma turma)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _professorService.Post(professor);
+            _turmaService.Post(turma);
+            _uow.Commit();
 
-            return CreatedAtAction("Get", new { id = professor.IdProfessor }, professor);
+            return CreatedAtAction("Get", new { id = turma.IdTurma }, turma);
         }
 
-        // DELETE: api/Professores/5
+        // DELETE: api/Turmas/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProfessor([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var professor = await _professorService.Get(id);
-            if (professor == null)
+            var turma = await _turmaService.Get(id);
+            if (turma == null)
             {
                 return NotFound();
             }
 
-            _professorService.Delete(professor.IdProfessor);
+            _turmaService.Delete(turma.IdTurma);
             _uow.Commit();
 
-            return Ok(professor);
+            return Ok(turma);
         }
 
-        private bool ProfessorExists(int id)
+        private bool TurmaExists(int id)
         {
-            return _professorService.Get(id).Result == null ? false : true;
+            return _turmaService.Get(id).Result == null ? false : true;
         }
     }
 }
