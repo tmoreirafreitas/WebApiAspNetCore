@@ -14,13 +14,13 @@ namespace SGE.Domain.Entities
         public string Telefone { get; set; }
         public string Email { get; set; }
         public virtual Endereco Endereco { get; set; }
-        public virtual IEnumerable<Trabalha> ListaDeTrabalhos { get; set; }
+        public virtual IEnumerable<ProfessorEscola> ListaDeTrabalhos { get; set; }
         public virtual IEnumerable<Aluno> ListaDeAlunos { get; set; }
         public virtual IEnumerable<TurmaEscola> ListaDeTurmas { get; set; }
 
         public Escola()
         {
-            ListaDeTrabalhos = new List<Trabalha>();
+            ListaDeTrabalhos = new List<ProfessorEscola>();
             ListaDeAlunos = new List<Aluno>();
             ListaDeTurmas = new List<TurmaEscola>();
         }

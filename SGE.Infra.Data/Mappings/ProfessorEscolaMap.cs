@@ -7,9 +7,9 @@ using System.Text;
 
 namespace SGE.Infra.Data.Mappings
 {
-    public class TrabalhaMap : IEntityTypeConfiguration<Trabalha>
+    public class ProfessorEscolaMap : IEntityTypeConfiguration<ProfessorEscola>
     {
-        public void Configure(EntityTypeBuilder<Trabalha> builder)
+        public void Configure(EntityTypeBuilder<ProfessorEscola> builder)
         {
             builder.HasKey(t => new { t.IdEscola, t.IdProfessor });
             builder.Property(t=>t.Adimissao)

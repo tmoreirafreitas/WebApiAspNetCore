@@ -23,7 +23,7 @@ namespace Sge.Infra.CrossCutting.IoC
             services.AddScoped<IEscolaService, EscolaService>();
             services.AddScoped<IProfessorDisciplinaService, ProfessorDisciplinaService>();
             services.AddScoped<IProfessorService, ProfessorService>();
-            services.AddScoped<ITrabalhaService, TrabalhaService>();
+            services.AddScoped<IProfessorEscolaService, ProfessorEscolaService>();
             services.AddScoped<ITurmaDisciplinaService, TurmaDisciplinaService>();
             services.AddScoped<ITurmaEscolaService, TurmaEscolaService>();
             services.AddScoped<ITurmaService, TurmaService>();
@@ -35,7 +35,7 @@ namespace Sge.Infra.CrossCutting.IoC
             services.AddScoped<IEscolaRepository, EscolaRepository>();
             services.AddScoped<IProfessorDisciplinaRepository, ProfessorDisciplinaRepository>();
             services.AddScoped<IProfessorRepository, ProfessorRepository>();
-            services.AddScoped<ITrabalhaRepository, TrabalhaRepository>();
+            services.AddScoped<IProfessorEscolaRepository, ProfessorEscolaRepository>();
             services.AddScoped<ITurmaDisciplinaRepository, TurmaDisciplinaRepository>();
             services.AddScoped<ITurmaEscolaRepository, TurmaEscolaRepository>();
             services.AddScoped<ITurmaRepository, TurmaRepository>();

@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 namespace Sge.Service.Interfaces
 {
-    public interface ITrabalhaService : IService<Trabalha, TrabalhaValidator>
+    public interface IProfessorEscolaService : IService<ProfessorEscola, ProfessorEscolaValidator>
     {
-        IEnumerable<Trabalha> GetByDate(DateTime date);
+        IEnumerable<ProfessorEscola> GetByDate(DateTime date);
     }
 }

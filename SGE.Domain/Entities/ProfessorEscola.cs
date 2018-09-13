@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SGE.Domain.Entities
 {
-    public class Trabalha
+    public class ProfessorEscola
     {
         public DateTime? Adimissao { get; set; }
         public int IdEscola { get; set; }

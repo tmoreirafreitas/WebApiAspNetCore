@@ -10,7 +10,7 @@ using SGE.Infra.Data.Context;
 namespace SGE.Infra.Data.Migrations
 {
     [DbContext(typeof(SgeContext))]
-    [Migration("20180913131514_InitialCreate")]
+    [Migration("20180913140943_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -217,7 +217,7 @@ namespace SGE.Infra.Data.Migrations
                     b.ToTable("ProfessorDisciplinas");
                 });
 
-            modelBuilder.Entity("SGE.Domain.Entities.Trabalha", b =>
+            modelBuilder.Entity("SGE.Domain.Entities.ProfessorEscola", b =>
                 {
                     b.Property<int>("IdEscola");
 
@@ -329,7 +329,7 @@ namespace SGE.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SGE.Domain.Entities.Trabalha", b =>
+            modelBuilder.Entity("SGE.Domain.Entities.ProfessorEscola", b =>
                 {
                     b.HasOne("SGE.Domain.Entities.Escola", "Escola")
                         .WithMany("ListaDeTrabalhos")

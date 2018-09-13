@@ -12,12 +12,12 @@ namespace SGE.Domain.Entities
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
-        public virtual IEnumerable<Trabalha> ListaDeTrabalho { get; set; }
+        public virtual IEnumerable<ProfessorEscola> ListaDeTrabalho { get; set; }
         public virtual IEnumerable<ProfessorDisciplina> ListaDeDisciplinas { get; set; }
         
         public Professor()
         {
-            ListaDeTrabalho = new List<Trabalha>();
+            ListaDeTrabalho = new List<ProfessorEscola>();
             ListaDeDisciplinas = new List<ProfessorDisciplina>();
         }
     }

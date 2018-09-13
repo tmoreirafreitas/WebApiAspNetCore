@@ -14,7 +14,7 @@ namespace SGE.Infra.Data.Context
         public DbSet<Escola> Escolas { get; set; }
         public DbSet<Professor> Professores { get; set; }
         public DbSet<ProfessorDisciplina> ProfessorDisciplinas { get; set; }
-        public DbSet<Trabalha> Trabalhas { get; set; }
+        public DbSet<ProfessorEscola> Trabalhas { get; set; }
         public DbSet<Turma> Turmas { get; set; }
         public DbSet<TurmaDisciplina> TurmaDisciplinas { get; set; }
         public DbSet<TurmaEscola> EscolaTurmas { get; set; }
@@ -36,7 +36,7 @@ namespace SGE.Infra.Data.Context
             modelBuilder.ApplyConfiguration(new EscolaMap());
             modelBuilder.ApplyConfiguration(new ProfessorMap());
             modelBuilder.ApplyConfiguration(new ProfessorDisciplinaMap());
-            modelBuilder.ApplyConfiguration(new TrabalhaMap());
+            modelBuilder.ApplyConfiguration(new ProfessorEscolaMap());
             modelBuilder.ApplyConfiguration(new TurmaMap());
             modelBuilder.ApplyConfiguration(new TurmaDisciplinaMap());
             modelBuilder.ApplyConfiguration(new TurmaEscolaMap());

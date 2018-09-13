@@ -210,7 +210,7 @@ namespace SGE.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Trabalhas",
+                name: "ProfessorEscola",
                 columns: table => new
                 {
                     Adimissao = table.Column<DateTime>(nullable: true, defaultValueSql: "getdate()"),
@@ -219,15 +219,15 @@ namespace SGE.Infra.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Trabalhas", x => new { x.IdEscola, x.IdProfessor });
+                    table.PrimaryKey("PK_ProfessorEscola", x => new { x.IdEscola, x.IdProfessor });
                     table.ForeignKey(
-                        name: "FK_Trabalhas_Escolas_IdEscola",
+                        name: "FK_ProfessorEscola_IdEscola",
                         column: x => x.IdEscola,
                         principalTable: "Escolas",
                         principalColumn: "IdEscola",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Trabalhas_Professores_IdProfessor",
+                        name: "FK_ProfessorEscola_IdProfessor",
                         column: x => x.IdProfessor,
                         principalTable: "Professores",
                         principalColumn: "IdProfessor",
@@ -265,8 +265,8 @@ namespace SGE.Infra.Data.Migrations
                 column: "IdProfessor");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Trabalhas_IdProfessor",
-                table: "Trabalhas",
+                name: "IX_ProfessorEscola_IdProfessor",
+                table: "ProfessorEscola",
                 column: "IdProfessor");
 
             migrationBuilder.CreateIndex(
@@ -287,7 +287,7 @@ namespace SGE.Infra.Data.Migrations
                 name: "ProfessorDisciplinas");
 
             migrationBuilder.DropTable(
-                name: "Trabalhas");
+                name: "ProfessorEscola");
 
             migrationBuilder.DropTable(
                 name: "TurmaDisciplinas");

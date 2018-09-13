@@ -7,9 +7,9 @@ using System.Text;
 
 namespace SGE.Infra.Data.Repositories
 {
-    public class TrabalhaRepository : Repository<Trabalha>, ITrabalhaRepository
+    public class ProfessorEscolaRepository : Repository<ProfessorEscola>, IProfessorEscolaRepository
     {
-        public TrabalhaRepository(SgeContext context) : base(context)
+        public ProfessorEscolaRepository(SgeContext context) : base(context)
         {
         }
     }

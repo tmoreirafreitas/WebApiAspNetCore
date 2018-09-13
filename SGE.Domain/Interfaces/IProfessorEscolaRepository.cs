@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SGE.Domain.Interfaces
 {
-    public interface ITrabalhaRepository : IRepository<Trabalha>
+    public interface IProfessorEscolaRepository : IRepository<ProfessorEscola>
     {
     }
 }

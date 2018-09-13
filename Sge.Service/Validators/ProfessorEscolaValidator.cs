@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Sge.Service.Validators
 {
-    public class TrabalhaValidator : AbstractValidator<Trabalha>
+    public class ProfessorEscolaValidator : AbstractValidator<ProfessorEscola>
     {
-        public TrabalhaValidator()
+        public ProfessorEscolaValidator()
         {
 
         }

@@ -8,15 +8,15 @@ using System.Text;
 
 namespace Sge.Service.Service
 {
-    public class TrabalhaService : Service<Trabalha, TrabalhaValidator>, ITrabalhaService
+    public class ProfessorEscolaService : Service<ProfessorEscola, ProfessorEscolaValidator>, IProfessorEscolaService
     {
-        private readonly ITrabalhaRepository _repository;
-        public TrabalhaService(ITrabalhaRepository repository) : base(repository)
+        private readonly IProfessorEscolaRepository _repository;
+        public ProfessorEscolaService(IProfessorEscolaRepository repository) : base(repository)
         {
             _repository = repository;
         }
 
-        public IEnumerable<Trabalha> GetByDate(DateTime date)
+        public IEnumerable<ProfessorEscola> GetByDate(DateTime date)
         {
             if (date == null)
                 throw new ArgumentException("A data não pode ser nula.");

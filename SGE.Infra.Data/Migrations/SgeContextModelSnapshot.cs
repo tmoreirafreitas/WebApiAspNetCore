@@ -215,7 +215,7 @@ namespace SGE.Infra.Data.Migrations
                     b.ToTable("ProfessorDisciplinas");
                 });
 
-            modelBuilder.Entity("SGE.Domain.Entities.Trabalha", b =>
+            modelBuilder.Entity("SGE.Domain.Entities.ProfessorEscola", b =>
                 {
                     b.Property<int>("IdEscola");
 
@@ -327,7 +327,7 @@ namespace SGE.Infra.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("SGE.Domain.Entities.Trabalha", b =>
+            modelBuilder.Entity("SGE.Domain.Entities.ProfessorEscola", b =>
                 {
                     b.HasOne("SGE.Domain.Entities.Escola", "Escola")
                         .WithMany("ListaDeTrabalhos")
