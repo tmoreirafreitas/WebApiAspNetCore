@@ -4,6 +4,7 @@ using SGE.Domain.Entities;
 using SGE.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Sge.Service.Service
@@ -16,7 +17,18 @@ namespace Sge.Service.Service
             _repository = repository;
         }
 
-        public IEnumerable<TurmaDisciplina> GetBetweenDates(DateTime dateStart, DateTime dateEnd)
+        public void Delete(int idTurma, int idDisciplina)
+        {
+            if (idTurma == 0)
+                throw new ArgumentException("O idTurma não pode ser zero.");
+
+            if (idDisciplina == 0)
+                throw new ArgumentException("O idDisciplina não pode ser zero.");
+
+            _repository.Delete(peDel => peDel.IdTurma.Equals(idTurma) && peDel.IdDisciplina.Equals(idDisciplina));
+        }
+
+        public IQueryable<TurmaDisciplina> GetBetweenDates(DateTime dateStart, DateTime dateEnd)
         {
             if (dateStart == null)
                 throw new ArgumentException("A dateStart não pode ser nula.");
@@ -32,7 +44,7 @@ namespace Sge.Service.Service
             && td.DataTermino.Day <= dateEnd.Day));
         }
 
-        public IEnumerable<TurmaDisciplina> GetByDateEnd(DateTime dateEnd)
+        public IQueryable<TurmaDisciplina> GetByDateEnd(DateTime dateEnd)
         {
             if (dateEnd == null)
                 throw new ArgumentException("A dateEnd não pode ser nula.");
@@ -42,7 +54,7 @@ namespace Sge.Service.Service
             && td.DataTermino.Day.Equals(dateEnd.Day));
         }
 
-        public IEnumerable<TurmaDisciplina> GetByDateStart(DateTime dateStart)
+        public IQueryable<TurmaDisciplina> GetByDateStart(DateTime dateStart)
         {
             if (dateStart == null)
                 throw new ArgumentException("A dateStart não pode ser nula.");
@@ -50,6 +62,25 @@ namespace Sge.Service.Service
             return _repository.GetByExpression(td => td.DataInicio.Year.Equals(dateStart.Year)
             && td.DataInicio.Month.Equals(dateStart.Month)
             && td.DataInicio.Day.Equals(dateStart.Day));
+        }
+
+        public TurmaDisciplina GetByIds(int idTurma, int idDisciplina)
+        {
+            if (idTurma == 0)
+                throw new ArgumentException("A idTurma não pode ser zero.");
+
+            if (idDisciplina == 0)
+                throw new ArgumentException("A idDisciplina não pode ser zero.");
+
+            return _repository.GetByExpression(td => td.IdTurma.Equals(idTurma) && td.IdDisciplina.Equals(idDisciplina)).FirstOrDefault();
+        }
+
+        public IQueryable<TurmaDisciplina> GetByIdTurma(int idTurma)
+        {
+            if (idTurma == 0)
+                throw new ArgumentException("A idTurma não pode ser zero.");
+
+            return _repository.GetByExpression(td => td.IdTurma.Equals(idTurma));
         }
     }
 }

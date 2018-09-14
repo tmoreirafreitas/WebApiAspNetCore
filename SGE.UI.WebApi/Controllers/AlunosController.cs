@@ -98,7 +98,7 @@ namespace SGE.UI.WebApi.Controllers
             _alunoService.Post(aluno);
             _uow.Commit();
 
-            return CreatedAtAction("GetAluno", new { id = aluno.IdAluno }, aluno);
+            return CreatedAtAction("Get", new { id = aluno.IdAluno }, aluno);
         }
 
         // DELETE: api/Alunos/5

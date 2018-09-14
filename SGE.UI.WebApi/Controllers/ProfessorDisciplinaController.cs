@@ -5,7 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Sge.Service.Interfaces;
 using SGE.Domain.Entities;
+using SGE.Domain.Interfaces;
 using SGE.Infra.Data.Context;
 
 namespace SGE.UI.WebApi.Controllers
@@ -14,30 +16,32 @@ namespace SGE.UI.WebApi.Controllers
     [ApiController]
     public class ProfessorDisciplinaController : ControllerBase
     {
-        private readonly SgeContext _context;
+        private readonly IProfessorDisciplinaService _professorDisciplinaService;
+        private readonly IUnitOfWork _uow;
 
-        public ProfessorDisciplinaController(SgeContext context)
+        public ProfessorDisciplinaController(IProfessorDisciplinaService professorDisciplinaService, IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _professorDisciplinaService = professorDisciplinaService;
+            _uow = unitOfWork;
         }
 
         // GET: api/ProfessorDisciplina
         [HttpGet]
-        public IEnumerable<ProfessorDisciplina> GetProfessorDisciplinas()
+        public IEnumerable<ProfessorDisciplina> Get()
         {
-            return _context.ProfessorDisciplinas;
+            return _professorDisciplinaService.Get();
         }
 
         // GET: api/ProfessorDisciplina/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProfessorDisciplina([FromRoute] int id)
+        public IActionResult Get([FromRoute] int idProfessor)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var professorDisciplina = await _context.ProfessorDisciplinas.FindAsync(id);
+            var professorDisciplina = _professorDisciplinaService.GetByIdProfessor(idProfessor);
 
             if (professorDisciplina == null)
             {
@@ -49,27 +53,31 @@ namespace SGE.UI.WebApi.Controllers
 
         // PUT: api/ProfessorDisciplina/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProfessorDisciplina([FromRoute] int id, [FromBody] ProfessorDisciplina professorDisciplina)
+        public IActionResult Put([FromRoute] int idProfessor, [FromRoute] int idDisciplina, [FromBody] ProfessorDisciplina professorDisciplina)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != professorDisciplina.IdDisciplina)
+            if (idProfessor != professorDisciplina.IdProfessor)
+            {
+                return BadRequest();
+            }
+            if (idDisciplina != professorDisciplina.IdDisciplina)
             {
                 return BadRequest();
             }
 
-            _context.Entry(professorDisciplina).State = EntityState.Modified;
+            _professorDisciplinaService.Put(professorDisciplina);
 
             try
             {
-                await _context.SaveChangesAsync();
+                _uow.Commit();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProfessorDisciplinaExists(id))
+                if (!ProfessorDisciplinaExists(idProfessor, idDisciplina))
                 {
                     return NotFound();
                 }
@@ -84,21 +92,21 @@ namespace SGE.UI.WebApi.Controllers
 
         // POST: api/ProfessorDisciplina
         [HttpPost]
-        public async Task<IActionResult> PostProfessorDisciplina([FromBody] ProfessorDisciplina professorDisciplina)
+        public IActionResult Post([FromBody] ProfessorDisciplina professorDisciplina)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.ProfessorDisciplinas.Add(professorDisciplina);
+            _professorDisciplinaService.Post(professorDisciplina);
             try
             {
-                await _context.SaveChangesAsync();
+                _uow.Commit();
             }
             catch (DbUpdateException)
             {
-                if (ProfessorDisciplinaExists(professorDisciplina.IdDisciplina))
+                if (ProfessorDisciplinaExists(professorDisciplina.IdProfessor, professorDisciplina.IdDisciplina))
                 {
                     return new StatusCodeResult(StatusCodes.Status409Conflict);
                 }
@@ -108,33 +116,33 @@ namespace SGE.UI.WebApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetProfessorDisciplina", new { id = professorDisciplina.IdDisciplina }, professorDisciplina);
+            return CreatedAtAction("Get", new { id = professorDisciplina.IdDisciplina }, professorDisciplina);
         }
 
         // DELETE: api/ProfessorDisciplina/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProfessorDisciplina([FromRoute] int id)
+        public IActionResult Delete([FromRoute] int idProfessor, [FromRoute] int idDisciplina)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var professorDisciplina = await _context.ProfessorDisciplinas.FindAsync(id);
+            var professorDisciplina = _professorDisciplinaService.GetByIds(idProfessor, idDisciplina);
             if (professorDisciplina == null)
             {
                 return NotFound();
             }
 
-            _context.ProfessorDisciplinas.Remove(professorDisciplina);
-            await _context.SaveChangesAsync();
+            _professorDisciplinaService.Delete(professorDisciplina.IdProfessor, professorDisciplina.IdDisciplina);
+            _uow.Commit();
 
             return Ok(professorDisciplina);
         }
 
-        private bool ProfessorDisciplinaExists(int id)
+        private bool ProfessorDisciplinaExists(int idProfessor, int idDisciplina)
         {
-            return _context.ProfessorDisciplinas.Any(e => e.IdDisciplina == id);
+            return _professorDisciplinaService.GetByIds(idProfessor, idDisciplina) == null ? false : true;
         }
     }
 }

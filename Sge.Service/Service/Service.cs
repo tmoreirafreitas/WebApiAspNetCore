@@ -33,7 +33,7 @@ namespace Sge.Service.Service
             return await _repository.GetById(id);
         }
 
-        public IEnumerable<TEntity> Get()
+        public IQueryable<TEntity> Get()
         {
             return _repository.GetAll();
         }

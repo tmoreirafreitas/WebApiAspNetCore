@@ -29,7 +29,7 @@ namespace Sge.Service.Service
             _repository.Delete(peDel => peDel.IdEscola.Equals(IdEscola) && peDel.IdProfessor.Equals(IdProfessor));
         }
 
-        public IEnumerable<ProfessorEscola> GetByDate(DateTime date)
+        public IQueryable<ProfessorEscola> GetByDate(DateTime date)
         {
             if (date == null)
                 throw new ArgumentException("A data não pode ser nula.");

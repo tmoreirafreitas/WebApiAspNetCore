@@ -24,7 +24,7 @@ namespace Sge.Service.Service
             return _repository.GetByExpression(a => a.Matricula.Equals(matricula)).FirstOrDefault();
         }
 
-        public IEnumerable<Aluno> GetByName(string nome)
+        public IQueryable<Aluno> GetByName(string nome)
         {
             if (string.IsNullOrEmpty(nome))
                 throw new ArgumentException("O nome não pode ser vazio ou nulo.");

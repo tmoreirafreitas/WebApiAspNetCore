@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace SGE.Domain.Interfaces.Services
 {
@@ -18,6 +19,6 @@ namespace SGE.Domain.Interfaces.Services
 
         Task<TEntity> Get(int id);
 
-        IEnumerable<TEntity> Get();
+        IQueryable<TEntity> Get();
     }
 }

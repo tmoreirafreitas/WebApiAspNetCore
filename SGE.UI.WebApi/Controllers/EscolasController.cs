@@ -37,7 +37,7 @@ namespace SGE.UI.WebApi.Controllers
 
         // GET: api/Escolas/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetEscola([FromRoute] int id)
+        public async Task<IActionResult> Get([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
